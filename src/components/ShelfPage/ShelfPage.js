@@ -17,16 +17,17 @@ function ShelfPage() {
       <h2>Shelf</h2>
       <p>All of the available items can be seen here.</p>
 
-      {/* {shelfItems.map((item) => {
-        return (
-          <p>
-            <br />
-            {item.description}
-            <br />
-          </p>
-        )
-      })} */}
 
+      {shelfItems ?
+          shelfItems.map((item) => (
+              <p key={item.id}>
+                {item.description}
+              </p>
+          ))
+        :
+        (<p>Loading</p>)
+      }
+      
     </div>
   );
 }
