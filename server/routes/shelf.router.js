@@ -27,7 +27,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const itemToAdd = req.body
   const queryText = `INSERT INTO "item"
   ("description", "image_url", "user_id")
   VALUES ($1, $2, $3) `
