@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware')
 
 // ------------- BASE MODE -------------
 
@@ -14,8 +17,11 @@ router.get('/', (req, res) => {
 /**
  * Add an item for the logged in user to the shelf
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
+  const itemToAdd = req.body
+
+  const queryText = `INSERT INTO "item" `
 });
 
 /**
