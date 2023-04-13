@@ -38,6 +38,14 @@ const submitItem = (event) => {
   }
 }
 
+const handleDelete = (id) => {
+  console.log('id', id)
+  dispatch({
+    type: 'DELETE_ITEM',
+    payload: id
+  })
+}
+
   return (
     <div className="container">
       <h2>Shelf</h2>
@@ -49,6 +57,7 @@ const submitItem = (event) => {
               <p key={item.id}>
                 <img src={item.image_url} width="300"/>
                 {item.description}
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </p>
           ))
         :
