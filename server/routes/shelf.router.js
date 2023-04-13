@@ -2,6 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+// ------------- BASE MODE -------------
+
 /**
  * Get all of the items on the shelf
  */
@@ -22,6 +24,9 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
   // endpoint functionality
 });
+
+
+// ------------- STRETCH -------------
 
 /**
  * Update an item if it's something the logged in user added
