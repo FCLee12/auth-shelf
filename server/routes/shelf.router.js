@@ -25,12 +25,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   VALUES ($1, $2, $3) `
   let queryValues = [req.body.description, req.body.image_url, req.user.id]
   pool.query(queryText, queryValues)
-  .then((result) => {
-    res.sendStatus(201)
-  }).catch((error) => {
-    console.log(error)
-    res.sendStatus(500)
-  })
+    .then((result) => {
+      res.sendStatus(201)
+    }).catch((error) => {
+      console.log(error)
+      res.sendStatus(500)
+    })
 });
 
 /**
