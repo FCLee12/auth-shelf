@@ -6,10 +6,14 @@ function* addItem(action) {
     try {
         console.log('Inside of AddItem Generator function', action)
         // Post request to add an additional item.
+
+        console.log('action.payload', action.payload )
         yield axios.post('/api/shelf', action.payload);
 
+      
+
         // Call the GET generator to get the new list of items.
-        yield put({ type: 'FETCH_ITEMS', payload: action.payload });
+        yield put({ type: 'FETCH_ITEMS' });
 
     } catch (error) {
         console.log('Error with adding a new item', error);

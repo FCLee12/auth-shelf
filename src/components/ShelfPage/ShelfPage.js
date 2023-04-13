@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Dispatch, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 function ShelfPage() {
@@ -22,6 +22,20 @@ const handleInputChange = (event) => {
     ...itemToAdd,
     [name] : value,
   })
+}
+
+const submitItem = (event) => {
+  console.log('inside of submitItem', itemToAdd)
+  if (itemToAdd.description === '' || itemToAdd.image_url === '') {
+    alert('You must complete all input fields')
+  }
+  else {
+    console.log('itemToAdd', itemToAdd)
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: itemToAdd
+    })
+  }
 }
 
   return (
@@ -54,7 +68,7 @@ const handleInputChange = (event) => {
       value={itemToAdd.description}
       type="text" 
       placeholder="description"></input>
-      <button>Add</button>
+      <button onClick={submitItem}>Add</button>
     </div>
   );
 }
